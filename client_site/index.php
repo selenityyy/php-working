@@ -19,6 +19,7 @@ This file will be updated along the way
    get more imgs to scroll through some photos on homepage (done)
 -->
 <?php 
+session_start();
 // classes & objects here
 class StudentOrg {
    public string $name;
@@ -130,6 +131,7 @@ $pga = new StudentOrg(
         <ul>
             <li><a href = "subpages/about.html"> About </a></li>
             <li><a href = "subpages/socials.html"> Socials </a></li>
+            <li><a href="form.php"> Join us!</a></li>
         </ul>
      </nav>
 
