@@ -20,6 +20,8 @@ This file will be updated along the way
 -->
 <?php 
 session_start();
+// include our db.php file here
+include 'includes/db.php';
 // classes & objects here
 class StudentOrg {
    public string $name;
@@ -27,13 +29,18 @@ class StudentOrg {
    public string $link;
    public string $email;
    protected array $imgs;
+   protected mysqli $conn;
 
-   public function __construct(string $name, string $abbrev, string $link, string $email, array $imgs = []) {
+   public function __construct(string $name, string $abbrev, string $link, string $email, PDO $pdo) {
       $this->name = $name;
       $this->abbrev = $abbrev;
       $this->link = $link;
       $this->email = $email;
-      $this->imgs = $imgs;
+
+      // fetch imgs from db instead of hardcoding them
+      $stmt = $pdo->prepare("SELECT image FROM members WHERE org = ?");
+      $stmt->execute([$abbrev]);
+      $this->imgs = $stmt->fetchAll(PDO::FETCH_COLUMN);
    }
    
    // get the number of images
@@ -43,7 +50,6 @@ class StudentOrg {
 
    public function renderSlider(): string {
       $id     = strtolower($this->abbrev);
-      $folder = $this->abbrev . "-pics";
       $html   = "";
 
       $html .= "<div class='slider-container'>";
@@ -52,7 +58,7 @@ class StudentOrg {
       $html .= "  <button class='slider-button prev' onclick=\"changeSlide('{$id}', -1)\">&#8249;</button>";
       $html .= "  <div class='slider' id='{$id}-slider'>";
       foreach ($this->imgs as $img) {
-         $html .= "<img src='images/{$folder}/{$img}' alt='{$this->name} photo'>";
+         $html .= "<img src='" . htmlspecialchars($img) . "' alt='{this->name} photo'>";
       }
       $html .= "  </div>";
       $html .= "  <button class='slider-button next' onclick=\"changeSlide('{$id}', 1)\">&#8250;</button>";
@@ -69,19 +75,7 @@ $asa = new StudentOrg(
    abbrev: "ASA",
    link: "subpages/ASA.html",
    email: "asa@rhodysenate.org",
-   imgs: [
-         "ASA_group_photo.jpg",
-         "asa-dance.jpg",
-         "asa-floor.jpg",
-         "asa-outside.jpeg",
-         "dirt-lol.JPG",
-         "meeting-pic.jpg",
-         "new-eboard.JPG",
-         "ryry.jpg",
-         "spookyyy.JPG",
-         "stargazing.JPG",
-         "alex-fran.jpg"
-   ]
+   pdo: $pdo
 );
 
 // add PGA as a new org object
@@ -90,20 +84,7 @@ $pga = new StudentOrg(
    abbrev: "PGA",
    link: "subpages/PGA.html",
    email: "asa@rhodysenate.org",
-   imgs: [
-      "PGA_group_photo.png",
-      "ending.JPG",
-      "fake-love.JPG",
-      "heart.jpg",
-      "kings-and-queens.JPG",
-      "lullaby-group.JPG",
-      "lullaby.JPG",
-      "pga-tate.jpg",
-      "puppet-show.JPG",
-      "signal.jpg",
-      "slayers.JPG",
-      "TWICE.JPG"
-   ]
+   pdo: $pdo
 );
 ?>
 
