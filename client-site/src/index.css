@@ -1,0 +1,55 @@
+/* Global body styles — from homepage.css */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #b22222;
+  --white: #ffffff;
+  --cream: #fdf3d7;
+  --gray-light: #e0e0e0;
+  --gold: #f0c040;
+  --radius-sm: 8px;
+  --transition: 0.2s ease;
+  --font-display: 'Monaco', monospace;
+}
+
+body {
+    border: 5px solid rgb(47, 18, 3);
+    box-sizing: border-box;
+    background-color: rgb(255, 241, 181);
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: rgb(67, 48, 46);
+    font-family: 'Monaco', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+hr {
+    border: 2px solid rgb(106, 130, 62);
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 36px;
+    display: inline-block;
+    text-align: center;
+    border: 4px solid rgb(106, 130, 62);
+    border-radius: 10px;
+    border-style: double;
+    padding: 10px;
+    background-color: rgb(252, 179, 197);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
