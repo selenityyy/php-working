@@ -1,0 +1,19 @@
+Project Summary:
+
+Functionality:
+
+This site is for the Asian Students Association here at URI. The site serves as an aesthetically pleasing and easy-to-navigate website for current and future members to interact with and look through all the memories ASA x PGA have shared over the years. 
+
+There are different buttons on the homepage that direct you to other pages on the site (About, Socials, Join Us, ASA, and PGA), and allows for users to click the logo in the top corner to navigate between sites. While this appeared to be a slight flaw that could use improvement or different method according to classmates, I have chosen to respect the client's decision. The client felt the logo was a unique way for navigation and felt it was simple enough for others to use.
+
+Some of the key features of the site include an Instagram widget implemented from Elfsight, so that users can simply click on a post, and interact with all its components. This includes, viewing the post, an image slider, viewing the comment section, etc. The client also emphasized since the start that they wanted an image slider on the homepage to showcase some memories and the positive vibe that ASA brings.
+
+Another key feature is the Google Calendar API that I shared with the client at the start of the API integration. There is a Google Calendar where E-Board members can add events onto the site, and they'll show up on the ASA page with the date and time. 
+
+There aren't many mind blowing features on this site, since the intention was meant to be a simple, casual and cozy vibe. In the future, I will be developing some actual tutorials for E-Board members to use down the road, since I cannot run the site forever.
+
+I learned a lot during development stages; different methods on how to create a site. I tried Express/Handlebars, PHP and React, and PHP just seemed to fit the client's needs the most. It required a lot of trial and error, since some already working features would break other things, especially in React. PHP was the easiest for me to tweak changes and edit the feedback given by peers/the client.
+
+Some future improvements will definitely be a new mission statement. This was stated by the client, but it is currently a work in progress on their end. I plan to make documentation on GitHub using markup language, so that it's readable and nicely formatted. This documentation will serve as a guide for future members to add improvements. I will make it as simple as possible. I have enough time to do this, since I will be returning to the dance group next year (despite me graduating). 
+
+Eventually, this site will evolve into something even better than what it appears as now. The goal is to also get feedback from ASA members as a trial to see what users outside of E-Board would like to see on the website.
